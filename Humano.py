@@ -1,5 +1,5 @@
 import datetime
-import IMC
+import IndiceMassaCorporal as IM
 
 
 class Humano(object):
@@ -45,42 +45,12 @@ class Humano(object):
             print(f"{self.nome} é da Geração Alpha")
 
     def massa_corporal(self):
-        indice_massa_corporal = self.peso / (self.altura * self.altura)
 
-        if self.genero == "Masculino":
-            print(f"O IMC do {self.nome} é: {indice_massa_corporal}")
-            if self.idade < 5:
-                print("Tabela OMS")
-                # Criar uma nova função de acordo com a Tabela do OMS
+        IMC = IM.IMC(self.peso, self.altura, self.genero, self.idade)
+        IMC.resultado()
 
-            elif 5 <= self.idade < 19:
 
-                print("Tabela OMS")
-                # Criar uma nova função de acordo com a Tabela do OMS
 
-            elif 19 <= self.idade < 65:
-                print("Ele está com", IMC.IMC_Adulto(indice_massa_corporal))
-
-            elif self.idade >= 65:
-                print("Ele está com", IMC.IMC_Idoso(indice_massa_corporal))
-
-        elif self.genero == "Feminino":
-            print(f"O IMC da {self.nome} é: {indice_massa_corporal}")
-            if self.idade < 5:
-                print("Tabela OMS")
-                # Criar uma nova função de acordo com a Tabela do OMS
-
-            elif 5 <= self.idade < 19:
-
-                print("Tabela OMS")
-                # Criar uma nova função de acordo com a Tabela do OMS
-
-            elif 19 <= self.idade < 65:
-                print("Ela está com", IMC.IMC_Adulto(indice_massa_corporal))
-            elif self.idade >= 65:
-                print("Ela está com", IMC.IMC_Idoso(indice_massa_corporal))
-        else:
-            print("Não consigo calcular se não tiver o gênero do indivídulo.")
 
 
 # Essa função serve para calcular a idade de uma pessoa (viva hoje), somente preciso da data de nascimento dela
